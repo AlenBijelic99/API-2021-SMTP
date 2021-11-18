@@ -9,5 +9,15 @@ package main.java.ch.heigvd.api.mailrobot.smtp;
  */
 
 
+import main.java.ch.heigvd.api.mailrobot.model.mail.Message;
+
+import java.io.IOException;
+
 public class SmtpClient implements ISmtpClient {
+
+    
+    @Override
+    public void sendMessage(Message message) throws IOException {
+
+    }
 }
