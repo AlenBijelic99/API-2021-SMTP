@@ -1,10 +1,11 @@
-//Add prank emails separated by ==
-
 Subject: Call me
 
 Hello
 
-
 ==
 
-etc...
+Subject: Its a prank
+
+prank
+
+==
