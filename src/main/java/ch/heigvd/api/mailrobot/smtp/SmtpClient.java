@@ -1,4 +1,4 @@
-package smtp;
+package main.java.ch.heigvd.api.mailrobot.smtp;
 
 /*
     TODO: Se connecter au serveur SMTP à l'aide de socket et obtenir les flux d'entrée et de sortie
@@ -9,5 +9,5 @@ package smtp;
  */
 
 
-public class SmtpClient {
+public class SmtpClient implements ISmtpClient {
 }

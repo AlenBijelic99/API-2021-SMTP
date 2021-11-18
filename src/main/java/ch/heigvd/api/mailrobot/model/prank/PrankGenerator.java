@@ -1,7 +1,11 @@
-package model.prank;
+package main.java.ch.heigvd.api.mailrobot.model.prank;
 
 /*
-    TODO: Prépare tout pour envoyer des pranks
+    TODO:   Logique du programme.
+            Prépare tout pour envoyer des pranks
+            Définir les règles:
+                - Min. 3 personnes par groupes (1 sender et 2 recipients)
+                - Le nombre de groupe de victimes
  */
 
 public class PrankGenerator {
