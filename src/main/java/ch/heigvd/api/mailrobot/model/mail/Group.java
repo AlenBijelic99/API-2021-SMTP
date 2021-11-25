@@ -6,28 +6,17 @@ package main.java.ch.heigvd.api.mailrobot.model.mail;
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Group {
-    public List<Person> personList = new ArrayList<>();
 
-    public Group(Person ... people){
-        personList.addAll(Arrays.asList(people));
+    private final List<Person> members = new ArrayList<>();
+
+    public void addMember(Person person){
+        members.add(person);
     }
 
-    /**
-     *
-     * @param person
-     */
-    public void add(Person person){
-        personList.add(person);
-    }
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "personList=" + personList +
-                '}';
+    public List<Person> getMembers() {
+        return new ArrayList<>(members);
     }
 }
