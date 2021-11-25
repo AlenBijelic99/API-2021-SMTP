@@ -1,17 +1,7 @@
 package main.java.ch.heigvd.api.mailrobot.config;
 
-
-/*
-    TODO: Lire les fichiers de configuration
-                - Lire les informations du serveur SMTP (il existe des classe permettant de faire le parsing des fihiers properties, faire des recherches)
-                - Lire la liste des victimes (Lire chaque ligne = readLine) (loadAddressFromFile)
-                - Lire les messages. Un message se termine avec les caractères ==. (laodMessagesFromFile)
- */
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
@@ -55,17 +45,42 @@ public class ConfigManager implements IConfigManager{
     }
 
     @Override
-    public List<String> getEmailsList() {
-        return null;
+    public List<String> laodMessagesFromFile() {
+        List<String> messagesList = new ArrayList<>();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(messagesFilePath));
+
+            String line;
+            StringBuilder stringbuilder = new StringBuilder();
+            while((line = bufferedReader.readLine()) != null){
+                if(line.startsWith("==")){
+                    messagesList.add(stringbuilder.toString());
+                    stringbuilder = new StringBuilder();
+                }else{
+                    stringbuilder.append(line).append("\n");
+                }
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return messagesList;
     }
 
     @Override
-    public List<String> getMessagesList() {
-        return null;
-    }
+    public List<String> loadAddressFromFile() {
+        List<String> emailList = new ArrayList<>();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(victimsFilePath));
 
-    public static void main(String[] args) {
-        ConfigManager configManager = new ConfigManager();
-        System.out.println(configManager.getSmtpServerAddress());
+            String line;
+            while((line = bufferedReader.readLine()) != null){
+                emailList.add(line);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return emailList;
     }
 }

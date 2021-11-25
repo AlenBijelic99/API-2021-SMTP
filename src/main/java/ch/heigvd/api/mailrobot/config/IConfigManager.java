@@ -1,18 +1,14 @@
 package main.java.ch.heigvd.api.mailrobot.config;
 
-/*
-    TODO:   Définir les paramètres du serveur (addresse, port).
-            Récupérer la liste des
- */
-
-
 import java.util.List;
 
 public interface IConfigManager {
 
-    public static final String configFilePath = "../../../../../../../../../../../config/config.properties";
-    public static final String messagesFilePath = "../../../../../../../../../../../config/messages.utf8";
-    public static final String victimsFilePath = "../../../../../../../../../../../config/victims.utf8";
+    public final String currentProjectFilePath = System.getProperty("user.dir");
+
+    public static final String configFilePath = currentProjectFilePath + "/config/config.properties";
+    public static final String messagesFilePath = currentProjectFilePath + "/config/messages.utf8";
+    public static final String victimsFilePath = currentProjectFilePath + "/config/victims.utf8";
 
     // Functions for config.properties
 
@@ -25,8 +21,8 @@ public interface IConfigManager {
     public String getWitnessToCC();
 
     // Functions for messages.utf8
-    public List<String> getMessagesList();
+    public List<String> laodMessagesFromFile();
 
     // Functions for victims.utf8
-    public List<String> getEmailsList();
+    public List<String> loadAddressFromFile();
 }
