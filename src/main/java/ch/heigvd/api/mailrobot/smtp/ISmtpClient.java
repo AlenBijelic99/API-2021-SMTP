@@ -1,8 +1,8 @@
 package main.java.ch.heigvd.api.mailrobot.smtp;
 
 import main.java.ch.heigvd.api.mailrobot.model.mail.Message;
-
 import java.io.IOException;
+import java.net.InetAddress;
 
 public interface ISmtpClient {
 
