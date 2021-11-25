@@ -8,5 +8,8 @@ package main.java.ch.heigvd.api.mailrobot.model.prank;
                 - Le nombre de groupe de victimes
  */
 
+import main.java.ch.heigvd.api.mailrobot.model.mail.Person;
+
 public class PrankGenerator {
+
 }
