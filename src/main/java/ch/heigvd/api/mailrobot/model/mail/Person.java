@@ -1,5 +1,6 @@
 package main.java.ch.heigvd.api.mailrobot.model.mail;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
