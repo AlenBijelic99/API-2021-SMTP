@@ -1,17 +1,5 @@
 package main.java.ch.heigvd.api.mailrobot.model.mail;
 
-public class Person {
-    private final String lastname;
-    private final String firstname;
-    private final String email;
-
-    public Person(String lastname, String firstname, String email){
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.email = email;
-    }
-
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

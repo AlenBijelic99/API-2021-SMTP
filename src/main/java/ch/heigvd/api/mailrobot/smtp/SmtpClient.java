@@ -40,7 +40,7 @@ public class SmtpClient implements ISmtpClient {
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
         String line = reader.readLine();
         LOG.info(line);
-        writer.printf("EHLO localhost\r\n");
+        writer.printf("HELLO localhost\r\n");
         line = reader.readLine();
         LOG.info(line);
         if(!line.startsWith("250")){
