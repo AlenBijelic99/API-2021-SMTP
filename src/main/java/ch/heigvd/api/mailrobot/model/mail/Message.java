@@ -17,9 +17,9 @@ import java.util.Arrays;
 public class Message {
 
     private String from;
-    private String[] to = new String[0];
-    private String[] cc = new String[0];
-    private String[] bcc = new String[0];
+    private String[] to;
+    private String[] cc;
+    private String[] bcc;
     private String subject;
     private String body;
 

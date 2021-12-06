@@ -13,6 +13,7 @@ import main.java.ch.heigvd.api.mailrobot.model.mail.Message;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SmtpClient implements ISmtpClient {
@@ -22,11 +23,11 @@ public class SmtpClient implements ISmtpClient {
     private String smtpServerAddress;
     private int smtpServerPort = 25;
 
-    private Socket socket;
-    private PrintWriter writer;
-    private BufferedReader reader;
+    private Socket socket = null;
+    private PrintWriter writer = null;
+    private BufferedReader reader = null;
 
-    public SmtpClient(String smtpServerAddress, int port){
+    public SmtpClient(String smtpServerAddress, int port) {
         this.smtpServerAddress = smtpServerAddress;
         smtpServerPort = port;
     }
@@ -119,5 +120,20 @@ public class SmtpClient implements ISmtpClient {
         reader.close();
         writer.close();
         socket.close();
+    }
+
+    public static void main(String[] args) {
+        SmtpClient smtpClient = new SmtpClient("locahost", 2525);
+        Message message = new Message();
+        message.setFrom("alen.bijelic@heig-vd.ch");
+        String[] to = {"test@test.com"};
+        message.setTo(to);
+
+        try{
+            smtpClient.sendMessage(message);
+        }
+        catch (IOException ex){
+           ex.printStackTrace();
+        }
     }
 }
