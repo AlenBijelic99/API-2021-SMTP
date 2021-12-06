@@ -38,8 +38,8 @@ public class Prank {
         victimRecipients.addAll(victims);
     }
 
-    public void addWitnessRecipients(List<Person> witness){
-        witnessRecipients.addAll(witness);
+    public void addWitnessRecipients(String witness){
+        witnessRecipients.add(new Person(witness));
     }
 
     public List<Person> getVictimRecipients() {
