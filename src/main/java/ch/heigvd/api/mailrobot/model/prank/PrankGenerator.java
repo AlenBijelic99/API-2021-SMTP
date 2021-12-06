@@ -12,6 +12,13 @@ import main.java.ch.heigvd.api.mailrobot.config.IConfigManager;
 import main.java.ch.heigvd.api.mailrobot.model.mail.Group;
 import main.java.ch.heigvd.api.mailrobot.model.mail.Person;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -78,6 +85,37 @@ public class PrankGenerator {
             targetGroup.addMember(victim);
         }
         return groups;
+    }
+
+    private void generateGroupFile(List<Prank> pranks) throws IOException {
+        File out = new File("target\\out");
+        if(!out.exists()){
+            Files.createDirectories(Paths.get("target\\out"));
+        }else{
+            File[] outFiles = out.listFiles();
+            if(outFiles != null){
+                for(File f : outFiles){
+                    f.delete();
+                }
+            }
+        }
+
+        PrintWriter writer = new PrintWriter(new FileWriter(out.getPath() + "\\groups.utf8", StandardCharsets.UTF_8));
+
+        StringBuilder strBuild = new StringBuilder();
+
+        for(Prank p : pranks){
+            strBuild.append("From ").append(p.getVictimSender().getAddress()).append("\n");
+            strBuild.append("To:").append("\n");
+            for(Person person : p.getVictimRecipients()){
+                strBuild.append("\t").append(person.getAddress()).append("\n");
+            }
+            strBuild.append("--");
+        }
+
+        writer.println(strBuild);
+        writer.flush();
+        writer.close();
     }
 
 }
