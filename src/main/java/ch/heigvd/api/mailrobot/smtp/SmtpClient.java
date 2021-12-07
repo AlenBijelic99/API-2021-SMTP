@@ -77,7 +77,7 @@ public class SmtpClient implements ISmtpClient {
             LOG.info(line);
         }
 
-        for(String to : message.getBcc()){
+        for (String to : message.getBcc()) {
             writer.write("RCPT TO:");
             writer.write(to);
             writer.write("\r\n");

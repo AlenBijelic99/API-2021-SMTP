@@ -64,6 +64,5 @@ public class Prank {
         msg.setFrom(victimSender.getAddress());
 
         return msg;
-
     }
 }

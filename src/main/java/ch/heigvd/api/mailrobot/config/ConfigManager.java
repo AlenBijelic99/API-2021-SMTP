@@ -1,6 +1,7 @@
 package main.java.ch.heigvd.api.mailrobot.config;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +49,7 @@ public class ConfigManager implements IConfigManager{
     public List<String> laodMessagesFromFile() {
         List<String> messagesList = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(messagesFilePath));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(messagesFilePath), StandardCharsets.UTF_8));
 
             String line;
             StringBuilder stringbuilder = new StringBuilder();
