@@ -27,10 +27,12 @@ For this project, we will use MockMock as a SMTP server. You will find all the f
 
 ### Build image
 After installing it in your local directory you need to launch Docker Desktop and execute [build-image.sh](https://github.com/AlenBijelic99/MockMock/blob/master/docker/build-image.sh) script. This will create a new image of the programm and it will be available in Docker as you can see here.
+
 ![Docker image](/figures/dockerImage.PNG)
 
 ### Run container
 Then you can run the container with the [run-container.sh](https://github.com/AlenBijelic99/MockMock/blob/master/docker/run-container.sh) script. Now you should see something as this in Docker Desktop.
+
 ![Docker running container](/figures/dockerRunningContainer.PNG)
 
 The container is configured to automatically run MockMock Server on port 2525 and the mail overview website on port 8080.
