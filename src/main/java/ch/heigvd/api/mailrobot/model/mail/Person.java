@@ -3,18 +3,21 @@ package main.java.ch.heigvd.api.mailrobot.model.mail;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Alen Bijelic
+ * @author Stefano Pontarolo
+ * Manage people
+ */
 public class Person {
 
     private String firstName;
     private String lastName;
     private final String address;
 
-    public Person(String firstName, String lastName, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-    }
-
+    /**
+     * Person constructor
+     * @param address Persons email address
+     */
     public Person(String address) {
         this.address = address;
         Pattern pattern = Pattern.compile("(.*)\\.(.*)@");
@@ -28,14 +31,26 @@ public class Person {
         }
     }
 
+    /**
+     * Get Persons first name
+     * @return First name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Get Persons last name
+     * @return Last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Get Persons email address
+     * @return Email address
+     */
     public String getAddress() {
         return address;
     }

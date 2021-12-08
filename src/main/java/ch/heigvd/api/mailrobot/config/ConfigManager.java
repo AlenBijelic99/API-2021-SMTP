@@ -7,8 +7,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 
+/**
+ * @author Alen Bijelic
+ * @author Stefano Pontarolo
+ * ConfigManager retrieve config infos
+ */
 public class ConfigManager implements IConfigManager{
 
+    /**
+     * Reads in specified config file
+     * @param propertyName Property to search in .properties file
+     * @return String of the value
+     */
     private String readFromPropertyFile(String propertyName){
         try {
             InputStream input = new FileInputStream(configFilePath);
@@ -25,26 +35,46 @@ public class ConfigManager implements IConfigManager{
         return null;
     }
 
+    /**
+     * Get SMTP server address
+     * @return SMTP server address
+     */
     @Override
     public String getSmtpServerAddress() {
         return Objects.requireNonNull(readFromPropertyFile("smtpServerAddress"));
     }
 
+    /**
+     * Get SMTP server port
+     * @return SMTP server port
+     */
     @Override
     public int getSmtpServerPort() {
         return Integer.parseInt(Objects.requireNonNull(readFromPropertyFile("smtpServerPort")));
     }
 
+    /**
+     * Get number of groups
+     * @return Number of groups
+     */
     @Override
     public int getNumberOfGroups() {
         return Integer.parseInt(Objects.requireNonNull(readFromPropertyFile("numberOfGroups")));
     }
 
+    /**
+     * Get witness CC email address
+     * @return Witness CC email address
+     */
     @Override
     public String getWitnessToCC() {
         return Objects.requireNonNull(readFromPropertyFile("witnessToCC"));
     }
 
+    /**
+     * Read all messages from messages.utf8 file
+     * @return List of all messages
+     */
     @Override
     public List<String> laodMessagesFromFile() {
         List<String> messagesList = new ArrayList<>();
@@ -68,6 +98,10 @@ public class ConfigManager implements IConfigManager{
         return messagesList;
     }
 
+    /**
+     * Read all email address from vitcims.utf8 file
+     * @return List of victims email address
+     */
     @Override
     public List<String> loadAddressFromFile() {
         List<String> emailList = new ArrayList<>();

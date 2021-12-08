@@ -1,39 +1,36 @@
 package main.java.ch.heigvd.api.mailrobot.model.prank;
 
-/*
-    TODO:   Logique du programme.
-            Prépare tout pour envoyer des pranks
-            Définir les règles:
-                - Min. 3 personnes par groupes (1 sender et 2 recipients)
-                - Le nombre de groupe de victimes
- */
-
 import main.java.ch.heigvd.api.mailrobot.config.IConfigManager;
 import main.java.ch.heigvd.api.mailrobot.model.mail.Group;
 import main.java.ch.heigvd.api.mailrobot.model.mail.Person;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
-
+/**
+ * @author Alen Bijelic
+ * @author Stefano Pontarolo
+ * Generates all pranks
+ */
 public class PrankGenerator {
 
     private static final Logger LOG = Logger.getLogger(PrankGenerator.class.getName());
-    private IConfigManager configManager;
+    private final IConfigManager configManager;
 
+    /**
+     * PrankGenerator constructor
+     * @param configManager Manager to retrieve config infos
+     */
     public PrankGenerator(IConfigManager configManager) {
         this.configManager = configManager;
     }
 
+    /**
+     * Generates pranks
+     * @return A list of all pranks
+     */
     public List<Prank> generatePranks(){
 
         List<Prank> pranks = new ArrayList<>();
@@ -68,6 +65,12 @@ public class PrankGenerator {
         return pranks;
     }
 
+    /**
+     * Generates a list of group of people
+     * @param adresseVictims Victims address
+     * @param numberOfGroups Number of groups
+     * @return A list of groups
+     */
     private List<Group> generateGroups(List<String> adresseVictims, int numberOfGroups){
         List<String> availableVictims = new ArrayList<>(adresseVictims);
         Collections.shuffle(availableVictims);
@@ -86,36 +89,4 @@ public class PrankGenerator {
         }
         return groups;
     }
-
-    private void generateGroupFile(List<Prank> pranks) throws IOException {
-        File out = new File("target\\out");
-        if(!out.exists()){
-            Files.createDirectories(Paths.get("target\\out"));
-        }else{
-            File[] outFiles = out.listFiles();
-            if(outFiles != null){
-                for(File f : outFiles){
-                    f.delete();
-                }
-            }
-        }
-
-        PrintWriter writer = new PrintWriter(new FileWriter(out.getPath() + "\\groups.utf8", StandardCharsets.UTF_8));
-
-        StringBuilder strBuild = new StringBuilder();
-
-        for(Prank p : pranks){
-            strBuild.append("From ").append(p.getVictimSender().getAddress()).append("\n");
-            strBuild.append("To:").append("\n");
-            for(Person person : p.getVictimRecipients()){
-                strBuild.append("\t").append(person.getAddress()).append("\n");
-            }
-            strBuild.append("--");
-        }
-
-        writer.println(strBuild);
-        writer.flush();
-        writer.close();
-    }
-
 }

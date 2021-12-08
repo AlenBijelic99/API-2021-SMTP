@@ -8,6 +8,11 @@ import main.java.ch.heigvd.api.mailrobot.smtp.SmtpClient;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author Alen Bijelic
+ * @author Stefano Pontarolo
+ * Program entry point to send emails
+ */
 public class MailRobot {
     public static void main(String[] args) throws IOException {
         ConfigManager configManager = new ConfigManager();
@@ -16,7 +21,6 @@ public class MailRobot {
 
         String serverAddress = configManager.getSmtpServerAddress();
         int serverPort = configManager.getSmtpServerPort();
-        int nbGroup = configManager.getNumberOfGroups();
 
         SmtpClient smtp = new SmtpClient(serverAddress, serverPort);
 

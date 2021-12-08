@@ -4,7 +4,12 @@ import main.java.ch.heigvd.api.mailrobot.model.mail.Message;
 import java.io.IOException;
 import java.net.InetAddress;
 
+/**
+ * @author Alen Bijelic
+ * @author Stefano Pontarolo
+ * SMTP client interface
+ */
 public interface ISmtpClient {
 
-    public void sendMessage(Message message) throws IOException;
+    void sendMessage(Message message) throws IOException;
 }
