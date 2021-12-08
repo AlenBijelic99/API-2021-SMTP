@@ -40,14 +40,6 @@ public class Person {
     }
 
     /**
-     * Get Persons last name
-     * @return Last name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
      * Get Persons email address
      * @return Email address
      */

@@ -16,17 +16,17 @@ public interface IConfigManager {
     String victimsFilePath = currentProjectFilePath + "/config/victims.utf8";
 
     // Functions for config.properties
-    public String getSmtpServerAddress();
+    String getSmtpServerAddress();
 
-    public int getSmtpServerPort();
+    int getSmtpServerPort();
 
-    public int getNumberOfGroups();
+    int getNumberOfGroups();
 
-    public String getWitnessToCC();
+    String getWitnessToCC();
 
     // Functions for messages.utf8
-    public List<String> laodMessagesFromFile();
+    List<String> loadMessagesFromFile();
 
     // Functions for victims.utf8
-    public List<String> loadAddressFromFile();
+    List<String> loadAddressFromFile();
 }

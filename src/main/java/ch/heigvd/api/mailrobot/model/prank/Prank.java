@@ -20,27 +20,11 @@ public class Prank {
     private String message;
 
     /**
-     * Get the victim sender
-     * @return Victim sender
-     */
-    public Person getVictimSender() {
-        return victimSender;
-    }
-
-    /**
      * Set the victim sender
      * @param victimSender Victim sender
      */
     public void setVictimSender(Person victimSender) {
         this.victimSender = victimSender;
-    }
-
-    /**
-     * Get prank message
-     * @return Prank message
-     */
-    public String getMessage() {
-        return message;
     }
 
     /**
@@ -53,7 +37,7 @@ public class Prank {
 
     /**
      * Add a victim recipient to the list
-     * @param victims
+     * @param victims A list of victims to add in the victim recipients
      */
     public void addVictimRecipients(List<Person> victims){
         victimRecipients.addAll(victims);
@@ -65,22 +49,6 @@ public class Prank {
      */
     public void addWitnessRecipients(String witness){
         witnessRecipients.add(new Person(witness));
-    }
-
-    /**
-     * Get victims recipients list
-     * @return Victims recipients
-     */
-    public List<Person> getVictimRecipients() {
-        return new ArrayList<>(victimRecipients);
-    }
-
-    /**
-     * Get a ist of witness recipients
-     * @return List of witness recipients
-     */
-    public List<Person> getWitnessRecipients() {
-        return new ArrayList<>(witnessRecipients);
     }
 
     /**

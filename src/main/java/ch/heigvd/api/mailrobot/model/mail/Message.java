@@ -70,14 +70,6 @@ public class Message {
     }
 
     /**
-     * Set hidden copy recipients
-     * @param bcc Hidden copy recipients array
-     */
-    public void setBcc(String[] bcc) {
-        this.bcc = bcc;
-    }
-
-    /**
      * Get body of the message
      * @return Message body
      */

@@ -34,7 +34,7 @@ public class PrankGenerator {
     public List<Prank> generatePranks(){
 
         List<Prank> pranks = new ArrayList<>();
-        List<String> messages = configManager.laodMessagesFromFile();
+        List<String> messages = configManager.loadMessagesFromFile();
         int messageIndex = 0;
 
         int numberOfGroups = configManager.getNumberOfGroups();

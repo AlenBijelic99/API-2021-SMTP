@@ -75,8 +75,7 @@ public class ConfigManager implements IConfigManager{
      * Read all messages from messages.utf8 file
      * @return List of all messages
      */
-    @Override
-    public List<String> laodMessagesFromFile() {
+    public List<String> loadMessagesFromFile() {
         List<String> messagesList = new ArrayList<>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(messagesFilePath), StandardCharsets.UTF_8));
@@ -99,7 +98,7 @@ public class ConfigManager implements IConfigManager{
     }
 
     /**
-     * Read all email address from vitcims.utf8 file
+     * Read all email address from victims.utf8 file
      * @return List of victims email address
      */
     @Override
