@@ -114,7 +114,7 @@ If you are using this program on a real SMTP server, you do not need to do steps
 
 ## How does it work ?
 ### SMTP
-SMTP (Simple Mail Transfer Protocol) is a protocol that defines the steps and the specifications on how to send emails. Here is an example of client-server exchanges on a real SMTP server. With MockMock there is less steps as it does not send email to the recipients. 
+SMTP (Simple Mail Transfer Protocol) is a protocol that defines the steps and the specifications on how to send emails. Here is an example of client-server exchanges on a real SMTP server. With MockMock there is less steps as it does not send email to the recipients. So the first request is not done and the last step stops at the server.
 
 ![SMTP Example](/figures/connectToSMTP.PNG)
 
@@ -135,7 +135,7 @@ PrankGenerator will prepare all pranks with the Prank class. It will create grou
 The SMTP Client manage communication with the server. It will read information sent by the server and send the email.
 
 #### Group, Message and Person
-These classes manage the people, the groups and the messages. It enable PrankGenerator to organise the emails to be send.
+These classes manage the people, the groups and the messages. It enable PrankGenerator to organise the emails to be sent.
 
 #### ConfigManager
 The ConfigManage class retrieves all informations from the config files. It uses Property class to read the config.properties file. For .utf8 files it will read with buffers.
