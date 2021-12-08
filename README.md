@@ -41,12 +41,12 @@ For this project, we will use MockMock as a SMTP server. You will find all the f
 ### Build image
 After installing it in your local directory you need to launch Docker Desktop and execute [build-image.sh](https://github.com/AlenBijelic99/MockMock/blob/master/docker/build-image.sh) script. This will create a new image of the programm and it will be available in Docker as you can see here.
 
-![Docker image](/figures/dockerImage.PNG)
+![Docker image](./figures/dockerImage.PNG)
 
 ### Run container
 Then you can run the container with the [run-container.sh](https://github.com/AlenBijelic99/MockMock/blob/master/docker/run-container.sh) script. Now you should see something as this in Docker Desktop.
 
-![Docker running container](/figures/dockerRunningContainer.PNG)
+![Docker running container](./figures/dockerRunningContainer.PNG)
 
 The container is configured to automatically run the SMTP Server on port 2525 and the mail overview website on port 8080.
 
@@ -92,9 +92,9 @@ C: Perte de la connexion à l’hôte.
 ### SMTP mails overview
 You can see the email that the server received in http://localhost:8080
 
-![New received email](/figures/mockMockReceivedEmail.PNG)
+![New received email](./figures/mockMockReceivedEmail.PNG)
 
-![Email details](/figures/mockMockEmailDetails.PNG)
+![Email details](./figures/mockMockEmailDetails.PNG)
 
 ## Launch Prank campaign
 > For this example, we will use IntelliJ with Java 11 (see [here](https://www.jetbrains.com/fr-fr/idea/download/#section=windows) to download) to modify the config files and run the program. Be sure to install all the requirements and follow the procedure to [setting up a SMTP server with Docker](#setting-up-a-smtp-server-with-docker)
@@ -116,13 +116,13 @@ If you are using this program on a real SMTP server, you do not need to do steps
 ### SMTP
 SMTP (Simple Mail Transfer Protocol) is a protocol that defines the steps and the specifications on how to send emails. Here is an example of client-server exchanges on a real SMTP server. With MockMock there is less steps as it does not send email to the recipients. So the first request is not done and the last step stops at the server.
 
-![SMTP Example](/figures/connectToSMTP.PNG)
+![SMTP Example](./figures/connectToSMTP.PNG)
 
 For more information, please check [RFC5321](https://datatracker.ietf.org/doc/html/rfc5321)
 
 ### UML
 
-![UML](/figures/UML.PNG)
+![UML](./figures/UML.PNG)
 
 ### The Prank program
 #### MailRobot
